@@ -255,8 +255,12 @@ def analyze():
     """
     try:
         # Check for URL
-        data = request.get_json() if request.is_json else {}
-        url = data.get('url', '').strip() if data else None
+        if request.is_json:
+            data = request.get_json() or {}
+            url = data.get('url', '').strip()
+        else:
+            url = request.form.get('url', '').strip()
+        data = {}
         
         # Check for uploaded file
         uploaded_file = request.files.get('file')
