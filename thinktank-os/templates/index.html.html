@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think Tank OS - Strategic Intelligence Arbitrage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🧠 Think Tank OS</h1>
+            <p class="subtitle">Strategic Intelligence Arbitrage System</p>
+            <div id="statusBadge" class="status-badge">Checking...</div>
+        </header>
+
+        <main class="main-content">
+            <div class="input-section">
+                <h2>📎 Add Report</h2>
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('url')">URL</button>
+                    <button class="tab" onclick="switchTab('upload')">Upload PDF</button>
+                </div>
+
+                <div id="urlTab" class="tab-content active">
+                    <label>Paste PDF URL or webpage link:</label>
+                    <textarea id="urlInput" rows="3" placeholder="https://example.com/report.pdf&#10;https://example.com/article.html"></textarea>
+                    <button class="btn-primary" onclick="addFromURL()">➕ Add to Queue</button>
+                </div>
+
+                <div id="uploadTab" class="tab-content">
+                    <label>Select PDF files from your computer:</label>
+                    <input type="file" id="fileInput" accept=".pdf" multiple>
+                    <button class="btn-primary" onclick="addFromFiles()">➕ Add to Queue</button>
+                </div>
+            </div>
+
+            <div class="queue-section">
+                <div class="queue-header">
+                    <h3>📋 Analysis Queue</h3>
+                    <div class="queue-actions">
+                        <button class="btn-success" onclick="runAll()">🚀 Run All</button>
+                        <button class="btn-warning" onclick="clearQueue()">🗑 Clear</button>
+                    </div>
+                </div>
+                <div id="queueCount" class="queue-count">0 items</div>
+                <ul id="queueList" class="queue-list"></ul>
+            </div>
+
+            <div class="results-section">
+                <div class="results-header">
+                    <h3 id="resultsTitle">📊 Results</h3>
+                    <button class="btn-success btn-small" onclick="copyResults()" id="copyBtn" style="display:none">📋 Copy</button>
+                </div>
+                <div id="resultsContent" class="results-content">
+                    <div class="welcome">
+                        <h2>Welcome to Think Tank OS</h2>
+                        <p>Your AI-powered business intelligence engine.</p>
+                        <ul>
+                            <li>Paste consulting report URLs or upload PDFs</li>
+                            <li>Add multiple reports to the queue</li>
+                            <li>Click "Run All" to analyze everything</li>
+                            <li>Get 3 unconventional "boring" business opportunities per report</li>
+                        </ul>
+                        <p class="note">✨ Analyses complete in ~5-10 seconds using Groq AI</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Think Tank OS • Built for Uncle Rhema • Powered by Groq AI • 100% Privacy-First</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
