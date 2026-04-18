@@ -32,7 +32,7 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 # Use fastest Groq model
-GROQ_MODEL = "llama-3.1-70b-versatile"  # or "mixtral-8x7b-32768"
+GROQ_MODEL = "llama-3.3-70b-versatile"  # or "mixtral-8x7b-32768"
 
 STRATEGIC_PROMPT = """You are a multidisciplinary strategic think tank: economist, systems engineer, and venture capitalist.
 
